@@ -1,44 +1,42 @@
-from operator import ge
-from random import choices
+print('\n11) elif:\n')
 
-import random
-
-def get_choices():
-    player_choice = input("Enter a choice (rock, paper, scissors): ")
-    options = ["rock", "paper", "scissors"]
-    computer_choice = random.choice(options);
-    choices = {"player": player_choice, "computer": computer_choice}
-    return choices
-
-def check_win_obsolete_by_refactor(player, computer):
-    print(f"You chose {player}, computer chose {computer}")
+def check_win_elif(player, computer):
+    print("You chose " + player + ", computer chose " + computer)
     if player == computer:
         return "It's a tie!"
-    elif player == "rock" and computer == "scissors":
-        return "Rock smashes scissors! You win!"
-    elif player == "rock" and computer == "paper":
-        return "Paper covers rock! You lose."
+    elif player == 'rock' and computer == 'scissors':
+        return 'Rock smashes scissors! You win!'
+    elif player == 'rock' and computer == 'paper':
+        return 'Paper covers Rock! You lose!'
 
-def check_win(player, computer):
-    print(f"You chose {player}, computer chose {computer}")
+print(check_win_elif('player', 'computer'))
+
+print('\n12) nesting if\'s:\n')
+
+def check_win_nesting(player, computer):
+    print("You chose " + player + ", computer chose " + computer)
     if player == computer:
         return "It's a tie!"
-    elif player == "rock":
-        if computer == "scissors":
-            return "Rock smashes scissors! You win!"
-        else:
-            return "Paper covers rock! You lose."
+    elif player == 'rock':
+        if computer == 'scissors':
+            return 'Rock smashes scissors! You win!'
+        else: 
+            return "Paper covers Rock! You lose!"
     elif player == "paper":
-        if computer == "rock":
-            return "Paper covers rock! You win!"
-        else:
-            return "Scissors cuts paper! You lose."
+        if computer == 'scissors':
+            return 'Scissors cut paper! You lose!'
+        else: 
+            return "Paper covers Rock! You win!"
     elif player == "scissors":
-        if computer == "rock":
-            return "Rock smashes scissors! You lose."
-        else:
-            return "Scissors cuts paper! You win!"
+        if computer == 'paper':
+            return 'Scissors cuts paper! You win!'
+        else: 
+            return 'Rock smashes scissors! You lose!'
+        
+print(check_win_nesting('player', 'computer'))
 
-choices = get_choices()
-result = check_win(choices["player"], choices["computer"])
-print(result)
+print('\n13) dict value\'s:\n')
+
+choices = {"player": "rock", "computer": "paper"}
+p_choice = choices["player"]
+print(p_choice)
